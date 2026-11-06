@@ -1,6 +1,7 @@
 
 import os
 import joblib
+import io
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -814,6 +815,7 @@ with tab_analysis:
 
     heatmap_col, table_col = st.columns(2)
 
+
     with heatmap_col:
 
         st.write("Confusion Matrix Heatmap")
@@ -822,7 +824,8 @@ with tab_analysis:
 
         image = ax.imshow(
             cm,
-            cmap="Blues"
+            cmap="Blues",
+            interpolation="nearest"
         )
 
         ax.set_xticks([0, 1])
@@ -846,7 +849,6 @@ with tab_analysis:
         )
 
         for i in range(2):
-
             for j in range(2):
 
                 ax.text(
@@ -859,12 +861,28 @@ with tab_analysis:
                     fontsize=13
                 )
 
-        fig.colorbar(
-            image,
-            ax=ax
+        fig.colorbar(image, ax=ax)
+
+        fig.tight_layout()
+
+        # Convert Matplotlib figure into PNG image
+        image_buffer = io.BytesIO()
+
+        fig.savefig(
+            image_buffer,
+            format="png",
+            dpi=150,
+            bbox_inches="tight"
         )
 
-        st.pyplot(fig)
+        image_buffer.seek(0)
+
+        # Display PNG directly in Streamlit
+        st.image(
+            image_buffer,
+            use_container_width=True
+        )
+
         plt.close(fig)
 
     with table_col:
