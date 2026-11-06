@@ -259,28 +259,28 @@ with tab_overview:
     st.subheader("Description")
 
     st.write("""
-    Customer churn refers to customers discontinuing their
-    subscription or services.
+    A Machine Learning project that predicts Telecommunications customer churn using five classification algorithms. 
+    Includes data preprocessing, model comparison, performance evaluation, and a Streamlit dashboard 
+    web application for interactive evaluation of saved models on labelled test data, without retraining.
 
-    This project uses machine learning classification algorithms
-    to predict whether a telecommunications customer is likely
-    to leave the service.
+    Customer churn occurs when a customer stops using a company's services. For telecommunications providers, 
+    identifying customers likely to churn can help guide retention efforts.
     """)
 
     st.subheader("Objective")
 
     st.write("""
-    The objective is to compare five classification algorithms,
-    evaluate their predictive performance and identify suitable
-    models for customer churn prediction.
+    The objective of this project is to predict whether a customer will churn (Yes) or remain (No) using customer demographics, 
+    account details, and service information. Five classification algorithms are trained on the same dataset and evaluated using 
+    Accuracy, AUC, Precision, Recall, F1 Score, and Matthews Correlation Coefficient (MCC).
     """)
 
     st.subheader("Dataset Information")
 
     st.write("""
     The project uses the Telco Customer Churn dataset.
-    It contains customer demographics, account information,
-    subscribed services and customer churn status.
+    The dataset includes information about customer tenure, contract type, internet service, payment method, monthly charges, 
+    total charges, customer churn status and other services.
     """)
 
     st.markdown(
