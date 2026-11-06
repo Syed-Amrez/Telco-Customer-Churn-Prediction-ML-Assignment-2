@@ -41,7 +41,7 @@ The dataset includes information about customer tenure, contract type, internet 
 
 The deployed application loads the saved pipelines and evaluates them on the supplied labelled CSV; **it does not retrain or tune models during prediction**.
 
-##c. GitHub Repository Link
+## c. GitHub Repository Link
 
 **GitHub repository:** [Telco-Customer-Churn-Prediction-ML-Assignment-2](https://github.com/Syed-Amrez/Telco-Customer-Churn-Prediction-ML-Assignment-2)
 
