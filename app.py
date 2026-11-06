@@ -865,25 +865,13 @@ with tab_analysis:
 
         fig.tight_layout()
 
-        # Convert Matplotlib figure into PNG image
-        image_buffer = io.BytesIO()
 
-        fig.savefig(
-            image_buffer,
-            format="png",
-            dpi=150,
-            bbox_inches="tight"
-        )
+        # Display the Matplotlib heatmap directly in Streamlit
+        st.pyplot(fig)
 
-        image_buffer.seek(0)
-
-        # Display PNG directly in Streamlit
-        st.image(
-            image_buffer,
-            use_container_width=True
-        )
-
+        # Close the figure after displaying it
         plt.close(fig)
+
 
     with table_col:
 
