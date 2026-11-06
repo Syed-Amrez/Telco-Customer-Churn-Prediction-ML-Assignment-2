@@ -47,9 +47,24 @@ The deployed application loads the saved pipelines and evaluates them on the sup
 
 The repository contains the Streamlit source code, dependency list, labelled test CSV, trained model pipelines, and project documentation.
 
-d. ## Models Used and Evaluation Metrics
+## d. Models Used and Evaluation Metrics
+
+The five classification models implemented on the same dataset are:
+1. Logistic Regression
+2. Decision Tree Classifier
+3. K-Nearest Neighbors (KNN) Classifier
+4. Naive Bayes Classifier (Gaussian)
+5. Support Vector Machine (SVM)
 
 All five algorithms were evaluated on the **same held-out test set (1,409 records)**.
+
+The evaluation metrics are:
+- **Accuracy:** Overall proportion of correct predictions.
+- **AUC:** Area under the ROC curve.
+- **Precision:** Proportion of predicted churn cases that were actual churn cases.
+- **Recall:** Proportion of actual churn cases correctly identified.
+- **F1 Score:** Harmonic mean of precision and recall.
+- **MCC:** Matthews Correlation Coefficient, a balanced measure based on all four confusion-matrix outcomes.
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---:|---:|---:|---:|---:|---:|
@@ -59,18 +74,22 @@ All five algorithms were evaluated on the **same held-out test set (1,409 record
 | Naive Bayes | 0.6948 | 0.8074 | 0.4589 | **0.8369** | 0.5928 | 0.4245 |
 | Support Vector Machine (SVM) | 0.7913 | 0.7905 | 0.6418 | 0.4840 | 0.5518 | 0.4264 |
 
-*Scores are rounded to four decimal places. Precision, Recall, and F1 are calculated for the positive class (`Churn = Yes`). AUC is based on model scores or probabilities.*
-
 ### Observations on Model Performance
 
 | ML Model Name | Observation about Model Performance |
 |---|---|
 | **Logistic Regression** | Best overall balance: highest accuracy, AUC, precision, F1, and MCC among the five models. A strong choice for this dataset. |
-| **Decision Tree** | Lowest AUC, F1, and MCC. Its individual predictions are interpretable, but this model generalizes less effectively than the alternatives on the held-out test set. |
+| **Decision Tree** | Lowest AUC, F1, and MCC among the five models. Its performance on this test set was comparatively weaker. |
 | **KNN** | Moderate results across metrics, with recall slightly higher than Logistic Regression, but lower overall F1 and MCC. |
-| **Naive Bayes** | Highest recall (0.8369), detecting the largest share of actual churners, but with low precision and accuracy; it produces more false-positive churn predictions. |
+| **Naive Bayes** | Highest recall, detecting the largest share of actual churners, but with low precision and accuracy; it produces more false-positive churn predictions. |
 | **Support Vector Machine** | Second-highest accuracy and precision, but lower recall than Logistic Regression, resulting in a lower F1 score. |
 | **Overall Winner** | **Logistic Regression**, based on its leading accuracy, AUC, F1, and MCC. **Naive Bayes** may be preferred if identifying as many churners as possible is more important than avoiding false alarms. |
+
+### Overall Winner for the Dataset
+
+**Logistic Regression is the overall winning model** based on these evaluation results. It achieved the best accuracy, AUC, F1 score, and MCC among the five models, indicating the strongest overall balance on the held-out test data.
+
+Naive Bayes may be useful when identifying as many actual churn cases as possible is the primary objective, because it achieved the highest recall. However, this comes with lower precision and more false-positive predictions
 
 ### Best Model: Logistic Regression
 
@@ -83,35 +102,52 @@ For Logistic Regression, the confusion matrix on the held-out test set is:
 
 The model correctly classified 926 non-churning customers and 209 churning customers. It missed 165 actual churners and incorrectly flagged 109 non-churners.
 
-## Streamlit Web Application
-
-The interactive dashboard provides:
-
-- **Project Overview:** problem statement, dataset, preprocessing, and model information.
-- **Dataset:** upload a labelled CSV or use the included `telco_test.csv`; preview records and dataset dimensions.
-- **Model Analysis & Predictions:** compare all five models on the selected test data, choose one model from a dropdown, view the six evaluation metrics, inspect customer predictions, display a confusion matrix and classification report, and download prediction results.
+## Streamlit Application and Deployment
 
 **Live Streamlit application:** [Telco-Customer-Churn-Prediction-ML-Assignment-2](https://telco-customer-churn-prediction-ml-assignment-2-znuukmjtw7rpq9.streamlit.app/)
 
-> The uploaded CSV must include the original model input features and the actual `Churn` column (`Yes`/`No`). The app evaluates previously trained pipelines and does not fit them on uploaded test data.
+The interactive application is built using Streamlit and deployed on Streamlit Community Cloud.
+
+### Application Features
+
+- **Project Overview:** problem statement, dataset, preprocessing, and model information.
+- **Upload Dataset:** upload a labelled CSV or use the included `telco_test.csv`; preview records and dataset dimensions.
+- **Model Analysis & Predictions:** compare all five models on the selected test data, choose one model from a dropdown, view the six evaluation metrics, inspect customer predictions, display a confusion matrix and classification report, and download prediction results.
+
+> The uploaded CSV must include the original model input features and the actual `Churn` column (`Yes`/`No`).The application loads the saved model pipelines and evaluates them on the supplied test dataset. It does **not** retrain the models on uploaded test data.
 
 ## Repository Structure
 
 ```text
 Telco-Customer-Churn-Prediction-ML-Assignment-2/
-├── app.py
-├── requirements.txt
-├── README.md
-├── telco_test.csv
+│
 ├── .streamlit/
 │   └── config.toml
-└── model/
-    ├── logistic_regression.pkl
-    ├── decision_tree.pkl
-    ├── k-nearest_neighbors.pkl
-    ├── naive_bayes.pkl
-    └── support_vector_machine.pkl
+│
+├── Dataset csv files/
+│   ├── WA_Fn-UseC_-Telco-Customer-Churn.csv
+│   └── telco_test.csv
+│
+├── model/
+│   ├── decision_tree.pkl
+│   ├── k-nearest_neighbors.pkl
+│   ├── logistic_regression.pkl
+│   ├── naive_bayes.pkl
+│   └── support_vector_machine.pkl
+│
+├── Train models source code.py
+├── app.py
+├── requirements.txt
+├── telco_test.csv
+└── README.md
 ```
+## Conclusion
+
+This project demonstrates an end-to-end machine learning classification workflow for predicting customer churn. Five classification algorithms were implemented and evaluated using the same held-out test dataset and six evaluation metrics.
+
+Logistic Regression delivered the strongest overall results, while Naive Bayes achieved the highest recall. The saved preprocessing-and-model pipelines were integrated into a Streamlit dashboard, allowing users to upload test data, compare models, inspect evaluation results, and view customer-level predictions.
+
+The project covers dataset preparation, leakage-aware model development, evaluation, interactive application development, and cloud deployment.
 
 ## Run Locally
 
