@@ -113,8 +113,6 @@ Telco-Customer-Churn-Prediction-ML-Assignment-2/
     └── support_vector_machine.pkl
 ```
 
-The notebook or training source code used to create the saved pipelines should also be included in the repository to meet the assignment's source-code requirement.
-
 ## Run Locally
 
 1. Clone the repository:
