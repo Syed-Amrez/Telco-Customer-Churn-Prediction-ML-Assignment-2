@@ -240,8 +240,8 @@ except Exception as e:
 
 tab_overview, tab_dataset, tab_analysis = st.tabs([
     "📘 Project Overview",
-    "📂 Upload Dataset",
-    "📊 Model Analysis & Predictions"
+    "⬆️ Upload Dataset",
+    "🔍 Model Analysis & Predictions"
 ])
 
 
