@@ -100,6 +100,7 @@ div[data-testid="stMetric"] {
     padding: 12px;
 }
 
+
 /* Tabs */
 .stTabs [data-baseweb="tab-list"] {
     gap: 10px;
@@ -107,15 +108,30 @@ div[data-testid="stMetric"] {
 }
 
 .stTabs [data-baseweb="tab"] {
-    background-color: var(--secondary-background-color);
-    border-radius: 8px 8px 0 0;
+    background-color: var(--secondary-background-color) !important;
+    border-radius: 8px 8px 0 0 !important;
     padding: 12px 20px;
     color: var(--text-color);
+    transition: all 0.3s ease !important;
 }
 
-.stTabs [aria-selected="true"] {
-    background-color: #087e91;
-    color: white;
+/* Selected tab */
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: #087e91 !important;
+    color: #ffffff !important;
+    border-radius: 8px 8px 0 0 !important;
+    border-bottom: 2px solid #00e5ff !important;
+}
+
+/* Selected tab text */
+.stTabs [data-baseweb="tab"][aria-selected="true"] p {
+    color: #ffffff !important;
+}
+
+/* Hover effect */
+.stTabs [data-baseweb="tab"]:hover {
+    border-radius: 8px 8px 0 0 !important;
+    border-bottom: 2px solid #00e5ff !important;
 }
 
 /* Dataframes */
