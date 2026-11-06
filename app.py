@@ -409,12 +409,23 @@ with tab_dataset:
             input_df = pd.read_csv(DEFAULT_DATASET)
 
             st.info("Currently displaying the default test dataset.")
+        # Download the default test dataset
+        if os.path.exists(DEFAULT_DATASET):
+            with open(DEFAULT_DATASET, "rb") as file:
+                st.download_button(
+                    label="📥 Download Default Test Dataset",
+                    data=file,
+                    file_name="telco_test.csv",
+                    mime="text/csv",
+                    help="Download the test dataset used to display the default model evaluation results."
+                )
+
+    
 
     except Exception as e:
 
         st.error(f"Unable to read dataset: {e}")
         st.stop()
-
     # ------------------------------------------------------
     # VALIDATE TARGET COLUMN
     # ------------------------------------------------------
