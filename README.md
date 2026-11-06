@@ -5,13 +5,13 @@
 A Machine Learning project that predicts Telco customer churn using five classification algorithms. Includes data preprocessing, model comparison, performance evaluation, and a Streamlit dashboard web application for interactive evaluation of saved models on labelled test data, without retraining.
 
 
-## a. Problem Statement
+## Problem Statement
 
 Customer churn occurs when a customer stops using a company's services. For telecommunications providers, identifying customers likely to churn can help guide retention efforts.
 
 The objective of this project is to predict whether a customer will churn (`Yes`) or remain (`No`) using customer demographics, account details, and service information. Five classification algorithms are trained on the same dataset and evaluated using **Accuracy, AUC, Precision, Recall, F1 Score, and Matthews Correlation Coefficient (MCC)**.
 
-## b. Dataset Description
+## Dataset Description
 
 **Dataset:** IBM Telco Customer Churn  
 **Public source:** [Kaggle — Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
@@ -41,13 +41,13 @@ The dataset includes information about customer tenure, contract type, internet 
 
 The deployed application loads the saved pipelines and evaluates them on the supplied labelled CSV; **it does not retrain or tune models during prediction**.
 
-## c. GitHub Repository Link
+## GitHub Repository Link
 
 **GitHub repository:** [Telco-Customer-Churn-Prediction-ML-Assignment-2](https://github.com/Syed-Amrez/Telco-Customer-Churn-Prediction-ML-Assignment-2)
 
 The repository contains the Streamlit source code, dependency list, labelled test CSV, trained model pipelines, and project documentation.
 
-## d. Models Used and Evaluation Metrics
+## Models Used and Evaluation Metrics
 
 All five algorithms were evaluated on the **same held-out test set (1,409 records)**.
 
