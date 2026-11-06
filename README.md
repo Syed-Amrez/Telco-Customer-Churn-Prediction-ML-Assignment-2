@@ -91,7 +91,7 @@ The interactive dashboard provides:
 - **Dataset:** upload a labelled CSV or use the included `telco_test.csv`; preview records and dataset dimensions.
 - **Model Analysis & Predictions:** compare all five models on the selected test data, choose one model from a dropdown, view the six evaluation metrics, inspect customer predictions, display a confusion matrix and classification report, and download prediction results.
 
-**Live Streamlit application:** https://telco-customer-churn-prediction-ml-assignment-2-ifuctygm2u5raz.streamlit.app/
+**Live Streamlit application:** [Telco-Customer-Churn-Prediction-ML-Assignment-2](https://telco-customer-churn-prediction-ml-assignment-2-znuukmjtw7rpq9.streamlit.app/)
 
 > The uploaded CSV must include the original model input features and the actual `Churn` column (`Yes`/`No`). The app evaluates previously trained pipelines and does not fit them on uploaded test data.
 
