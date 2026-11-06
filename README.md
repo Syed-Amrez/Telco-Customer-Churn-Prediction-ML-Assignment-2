@@ -93,7 +93,7 @@ The interactive dashboard provides:
 
 **Live Streamlit application:** Add the URL of the deployment created from this repository here:
 
-`https://telco-customer-churn-prediction-ml-assignment-2-ifuctygm2u5raz.streamlit.app/`
+https://telco-customer-churn-prediction-ml-assignment-2-ifuctygm2u5raz.streamlit.app/
 
 > The uploaded CSV must include the original model input features and the actual `Churn` column (`Yes`/`No`). The app evaluates previously trained pipelines and does not fit them on uploaded test data.
 
