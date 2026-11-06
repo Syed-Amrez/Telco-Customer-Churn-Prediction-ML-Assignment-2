@@ -144,29 +144,3 @@ The application is deployed using **Streamlit Community Cloud** from the GitHub 
 
 The deployment environment installs dependencies from `requirements.txt` and loads the saved pipelines in the `model/` folder.
 
-## Assignment Submission Requirements
-
-The final assignment submission is **one PDF**, with the following items in this order:
-
-1. **GitHub repository link** — complete source code, `requirements.txt`, `README.md`, labelled test data, and all five saved models.
-2. **Live Streamlit app link** — an accessible interactive deployment.
-3. **BITS Virtual Lab screenshot** — one screenshot showing assignment execution on BITS Virtual Lab.
-4. **README content** — include the required problem statement, dataset description, repository link, metric comparison table, and observations in the PDF.
-
-### Final Checklist
-
-- [x] Five required classification algorithms implemented.
-- [x] Six evaluation metrics calculated for each model.
-- [x] Interactive Streamlit dashboard created.
-- [x] CSV upload, model selection, metrics, confusion matrix, and classification report implemented.
-- [x] GitHub repository created.
-- [x] Streamlit Community Cloud deployment completed.
-- [ ] Insert and verify the **new** live Streamlit URL above.
-- [ ] Ensure the model-training notebook/source code is committed.
-- [ ] Capture the required BITS Virtual Lab execution screenshot.
-- [ ] Prepare a **single PDF** containing the links, screenshot, and README content in the required order.
-
----
-
-**Assignment:** Machine Learning — Assignment 2  
-**Submission deadline:** 08-Nov-2026
